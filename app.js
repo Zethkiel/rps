@@ -46,8 +46,6 @@ function playGame() {
 
     console.log(`Human: ${humanScore}, Computer: ${computerScore}`);
 
-    
-
     console.log(
         humanScore > computerScore ? "Congrats! You won the game." :
         humanScore < computerScore ? "You lost the game. Better luck next time!" :
