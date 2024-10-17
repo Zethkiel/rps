@@ -8,30 +8,30 @@ function getHumanChoice() {
     return prompt("Rock, paper, or scissors?");
 }
 
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
-    function playRound(humanChoice, computerChoice) {
-        if (!humanChoice) return "There was no input.";
-        if (!rps.includes(humanChoice)) return "Invalid input!";
-        if (humanChoice === computerChoice) return "It's a tie!";
+function playRound(humanChoice, computerChoice) {
+    if (!humanChoice) return "There was no input.";
+    if (!rps.includes(humanChoice)) return "Invalid input!";
+    if (humanChoice === computerChoice) return "It's a tie!";
 
-        const result = {
-            rock: "scissors",
-            paper: "rock",
-            scissors: "paper"
-        };
+    const result = {
+        rock: "scissors",
+        paper: "rock",
+        scissors: "paper"
+    };
 
-        if (result[humanChoice] === computerChoice) {
-            humanScore++;
-            return `You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`;
-        } else {
-            computerScore++;
-            return `You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`;
-        }
+    if (result[humanChoice] === computerChoice) {
+        humanScore++;
+        return `You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`;
+    } else {
+        computerScore++;
+        return `You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`;
     }
+}
 
+function playGame() {
     let i = 0;
     while (i < 5) {
         const humanSelection = getHumanChoice().toLowerCase();
