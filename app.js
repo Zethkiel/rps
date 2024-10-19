@@ -32,6 +32,12 @@ function playRound(humanChoice, computerChoice) {
 function playGame() {
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
+            if (humanScore == 5 || computerScore == 5) {
+                humanScore = 0;
+                computerScore = 0;
+                results.textContent = "";
+            }
+            
             playRound(button.textContent.toLowerCase(), getComputerChoice());
 
             if (humanScore == 5 || computerScore == 5) {
@@ -41,9 +47,6 @@ function playGame() {
                 humanScore > computerScore ? "Congrats! You won the game." :
                 humanScore < computerScore ? "You lost the game. Better luck next time!" :
                 "It's an overall tie!"
-
-                humanScore = 0;
-                computerScore = 0;
             }
         })
     })
